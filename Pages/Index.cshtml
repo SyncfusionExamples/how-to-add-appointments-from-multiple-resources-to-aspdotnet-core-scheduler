@@ -1,0 +1,109 @@
+﻿@page
+@model IndexModel
+@using Syncfusion.EJ2
+@{
+    List<AppointmentData> appData = new List<AppointmentData>();
+    appData.Add(new AppointmentData
+            {
+                Id = 1,
+                Subject = "Marketing Forum",
+                StartTime = new DateTime(2024, 2, 5, 10, 0, 0),
+                EndTime = new DateTime(2024, 2, 5, 11, 30, 0),
+                ResourceID = 2
+            });
+    appData.Add(new AppointmentData
+            {
+                Id = 3,
+                Subject = "Business Factory",
+                StartTime = new DateTime(2024, 2, 5, 13, 30, 0),
+                EndTime = new DateTime(2024, 2, 5, 15, 0, 0), 
+                ResourceID = 3
+            });
+    appData.Add(new AppointmentData
+            {
+                Id = 4,
+                Subject = "Burning Man",
+                StartTime = new DateTime(2024, 2, 6, 11, 30, 0),
+                EndTime = new DateTime(2024, 2, 6, 13, 0, 0), 
+                ResourceID = 1
+            });
+    appData.Add(new AppointmentData
+            {
+                Id = 5,
+                Subject = "Funnel Hacking",
+                StartTime = new DateTime(2024, 2, 7, 9, 30, 0),
+                EndTime = new DateTime(2024, 2, 7, 11, 0, 0),
+                ResourceID = 3
+            });
+    appData.Add(new AppointmentData
+            {
+                Id = 6,
+                Subject = "The human gathering",
+                StartTime = new DateTime(2024, 2, 7, 13, 0, 0),
+                EndTime = new DateTime(2024, 2, 7, 14, 30, 0),
+                ResourceID = 2
+            });
+    appData.Add(new AppointmentData
+            {
+                Id = 7,
+                Subject = "Techweek",
+                StartTime = new DateTime(2024, 2, 8, 11, 0, 0),
+                EndTime = new DateTime(2024, 2, 8, 12, 30, 0),
+                ResourceID = 2
+            });
+    appData.Add(new AppointmentData
+            {
+                Id = 8,
+                Subject = "Grow Conference",
+                StartTime = new DateTime(2024, 2, 9, 10, 0, 0),
+                EndTime = new DateTime(2024, 2, 9, 11, 30, 0),
+                ResourceID = 1
+            });
+    appData.Add(new AppointmentData
+        {
+            Id = 9,
+            Subject = "Data Science Conference",
+            StartTime = new DateTime(2024, 2, 9, 13, 30, 0),
+            EndTime = new DateTime(2024, 2, 9, 15, 0, 0),
+            ResourceID = 1
+        });
+    appData.Add(new AppointmentData
+            {
+                Id = 10,
+                Subject = "Blogcademy",
+                StartTime = new DateTime(2024, 2, 10, 12, 0, 0),
+                EndTime = new DateTime(2024, 2, 10, 13, 30, 0),
+                ResourceID = 3
+            });
+
+    List<ResourceData> ResourceDetails = new List<ResourceData>();
+    ResourceDetails.Add(new ResourceData 
+        { 
+            OwnerText = "John", 
+            OwnerId = 1, 
+            Color = "#ea7a57" 
+        });
+    ResourceDetails.Add(new ResourceData { OwnerText = "Robert", OwnerId = 2, Color = "#df5286" });
+    ResourceDetails.Add(new ResourceData { OwnerText = "Laura", OwnerId = 3, Color = "#865fcf" });
+}
+
+<ejs-schedule 
+    id="schedule"
+    selectedDate="new DateTime(2024, 2, 5, 10, 0, 0)"
+    startHour="09:00"
+    endHour="15:00">
+    <e-schedule-eventsettings datasource='appData'>
+    </e-schedule-eventsettings>
+    <e-schedule-resources>
+        <e-schedule-resource dataSource="ResourceDetails"
+            field="ResourceID"
+            title="Resources"
+            allowMultiple=true
+            idField="OwnerId"
+            textField="OwnerText"
+            colorField="Color"></e-schedule-resource>
+    </e-schedule-resources>
+</ejs-schedule>
+
+
+
